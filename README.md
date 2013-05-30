@@ -1,4 +1,4 @@
-bootstrap-table-responsive
-==========================
+Responsive tables with Bootstrap
+================================
 
-A responsive table with twitter bootstrap
+TODO

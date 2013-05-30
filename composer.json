@@ -1,0 +1,17 @@
+{
+	"name": "alcaeus/bootstrap-table-responsive",
+	"description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
+	"keywords": ["bootstrap", "css", "responsive"],
+	"homepage": "https://github.com/alcaeus/bootstrap-table-responsive",
+	"authors": [
+		{
+			"name": "alcaeus",
+			"email": "alcaeus@alcaeus.org",
+			"role": "Developer"
+		}
+	],
+	"license": "Apache-2.0",
+	"requires": {
+		"twitter/bootstrap": "*"
+	}
+}

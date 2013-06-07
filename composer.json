@@ -10,5 +10,10 @@
 			"role": "Developer"
 		}
 	],
-	"license": "Apache-2.0"
+	"license": "Apache-2.0",
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	}
 }

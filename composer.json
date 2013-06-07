@@ -10,8 +10,5 @@
 			"role": "Developer"
 		}
 	],
-	"license": "Apache-2.0",
-	"requires": {
-		"twitter/bootstrap": "*"
-	}
+	"license": "Apache-2.0"
 }

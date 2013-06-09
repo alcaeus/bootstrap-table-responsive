@@ -1,6 +1,6 @@
 {
 	"name": "alcaeus/bootstrap-table-responsive",
-	"description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
+	"description": "Adds CSS classes for responsive tables to Twitter Bootstrap.",
 	"keywords": ["bootstrap", "css", "responsive"],
 	"homepage": "https://github.com/alcaeus/bootstrap-table-responsive",
 	"authors": [

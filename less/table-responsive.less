@@ -90,7 +90,7 @@
     }
 
     // Toggle button
-    dl > div.collapse-toggle {
+    dl .collapse-toggle {
         padding-right: @baseLineHeight / 2;
         padding-top: @baseLineHeight / 2;
         display: none;
@@ -193,7 +193,7 @@
     .tbody {
         > dl:nth-child(odd) > dd,
         > dl:nth-child(odd) > dt,
-        > dl:nth-child(odd) > div.collapse-toggle {
+        > dl:nth-child(odd) .collapse-toggle {
             background-color: @tableBackgroundAccent;
         }
     }
@@ -206,7 +206,7 @@
     .tbody {
         dl:hover > dd,
         dl:hover > dt,
-        dl:hover > div.collapse-toggle {
+        dl:hover .collapse-toggle {
             background-color: @tableBackgroundHover;
         }
     }
@@ -376,7 +376,7 @@
         }
 
         // Toggle button
-        dl > div.collapse-toggle {
+        dl .collapse-toggle {
             display: block;
         }
     }

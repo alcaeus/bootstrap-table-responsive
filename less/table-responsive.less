@@ -384,3 +384,14 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+  .table-responsive dl dt {
+    &:after {
+      content: ":";
+    }
+    &.collapse-toggle:after {
+      content: "";
+    }
+  }
+}

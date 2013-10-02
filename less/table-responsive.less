@@ -2,6 +2,13 @@
 // Responsive Tables (collapses when max-width of screen is less than grid-float-breakpoint)
 
 .table-collapse {
+  tbody {
+    > tr > td.collapse-toggle {
+      display: none;
+      padding: 4px 4px 0 0;
+    }
+  }
+
   @media (max-width: @grid-float-breakpoint) {
     display: block;
 
@@ -28,6 +35,15 @@
         > td {
           border: none;
           display: block;
+
+          &.collapse-toggle {
+            display: block;
+            float: right;
+          }
+
+          &.collapse {
+            display: none;
+          }
 
           &[role] {
             &:before {

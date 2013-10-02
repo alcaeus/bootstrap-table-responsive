@@ -1,11 +1,11 @@
-# Bootstrap Responsive Table v1.0.0
+# Bootstrap Responsive Table v2.0.0
 
 Adds classes for responsive tables to Twitter Bootstrap.
 
 
 ## Quick start
 * [Download the latest release](https://github.com/alcaeus/bootstrap-table-responsive/zipball/master).
-* Include the table-responsive.less stylesheet after responsive.less
+* Include one of the CSS files in dist/css after including bootstrap
 
 
 ## Bug tracker

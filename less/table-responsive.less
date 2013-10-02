@@ -19,29 +19,17 @@
 
       > tr {
         display: block;
+        border-top: 1px solid @table-border-color;
 
         &:first-child {
-          td:first-child {
-            border-top: none;
-          }
+          border-top: none;
         }
 
         > td {
-          &:first-child {
-            border-left: none;
-            border-right: none;
-            border-bottom: none;
-          }
-
-          &:not(:first-child) {
-            border: none;
-          }
-
+          border: none;
           display: block;
 
           &[role] {
-            .clearfix();
-
             &:before {
               content: attr(role);
               display: block;

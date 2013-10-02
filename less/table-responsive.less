@@ -1,111 +1,69 @@
 // Bootstrap v3.0
-// Responsive Tables
+// Responsive Tables (collapses when max-width of screen is less than grid-float-breakpoint)
 
-@table-float-breakpoint: 35%;
-@table-caption-bg: transparent;
-@table-caption-color: @headings-color;
-
-.table {
-  > caption {
-    background: @table-caption-bg;
-    padding: @table-cell-padding;
-    color: @table-caption-color;
-    text-align: left;
-    font-weight: 700;
-    font-size: @font-size-large;
-  }
-  [data-toggle="collapse"] {
-    display: none;
-  }
+.table-collapse {
   @media (max-width: @grid-float-breakpoint) {
-    [data-toggle="collapse"] {
-      display: block;
-      position: relative;
-      float: right;
-    }
     display: block;
-    > caption {
+
+    caption {
       display: block;
       .clearfix();
     }
-    > thead, tfoot {
+
+    thead, tfoot {
       display: none;
     }
-    > tbody {
-      border-top: 2px solid @table-border-color;
+
+    tbody {
       display: block;
+
       > tr {
         display: block;
+
+        &:first-child {
+          td:first-child {
+            border-top: none;
+          }
+        }
+
         > td {
           &:first-child {
             border-left: none;
             border-right: none;
             border-bottom: none;
           }
+
           &:not(:first-child) {
             border: none;
           }
+
           display: block;
-          &[role]:before {
-            content: attr(role);
-            display: block;
-            float: left;
-            margin-left: -@table-cell-padding;
-            margin-top: -@table-cell-padding;
-            margin-right: @table-cell-padding;
-            padding: @table-cell-padding;
-            font-weight: 700;
-            width: @table-float-breakpoint;
+
+          &[role] {
+            .clearfix();
+
+            &:before {
+              content: attr(role);
+              display: block;
+              float: left;
+              width: (@component-offset-horizontal - 20);
+              padding-right: 20px;
+              clear: left;
+              text-align: right;
+              font-weight: bold;
+              .text-overflow();
+            }
           }
         }
       }
-      &.table-collapse {
-        height: 0;
-        overflow-y: hidden;
-      }
     }
+
     &.table-bordered {
-      > tbody > tr > td {
-        &:not(:first-child) {
-          border-top: 1px dashed @table-border-color;
-        }
-        &[role]:before {
-          border-right: 1px solid @table-border-color;
-        }
-      }
-    }
-    &.table-condensed {
-      > tbody > tr > td[role]:before {
-        margin-left: -@table-condensed-cell-padding;
-        margin-top: -@table-condensed-cell-padding;
-        margin-right: @table-condensed-cell-padding;
-        padding: @table-condensed-cell-padding;
-      }
-    }
-    &.table-striped > tbody > tr:nth-child(odd) > td {
-      &[role]:before {
-        background-color: darken(@table-bg-accent, 6.5%);
-      }
-    }
-  }
-}
+      border: none; // Remove border from table and apply to tbody
 
-.table-collapse {
-  .clearfix();
-  @media (min-width: @grid-float-breakpoint) {
-    width: auto;
-    border-top: 0;
-    box-shadow: none;
-
-    &.collapse {
-      display: table-row-group !important;
-      height: auto !important;
-      padding-bottom: 0; // Override default setting
-      overflow: visible !important;
-    }
-
-    &.in {
-      overflow-y: visible;
+      tbody {
+        border: 1px solid @table-border-color;
+      }
     }
   }
 }

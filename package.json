@@ -1,0 +1,22 @@
+{
+    "name": "bootstrap-table-responsive",
+    "description": "Adds CSS classes for responsive tables to Twitter Bootstrap.",
+    "version": "2.0.0",
+    "keywords": ["bootstrap", "css", "responsive"],
+    "homepage": "https://github.com/alcaeus/bootstrap-table-responsive",
+    "author": "alcaeus",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alcaeus/bootstrap-table-responsive.git"
+    },
+    "licenses": [
+        {
+            "type": "Apache-2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    ],
+    "devDependencies": {
+        "grunt-recess": "~0.3.3",
+        "grunt-install-dependencies": "*"
+    }
+}

@@ -1,386 +1,72 @@
-/*!
- * Responsive table
- *
- * Copyright 2013 alcaeus@alcaeus.org
- * Styles based on Twitter Bootstrap 2.3
- */
+// Bootstrap v3.0
+// Responsive Tables (collapses when max-width of screen is less than grid-float-breakpoint)
 
-//
-// Responsive: Large desktop and up
-// --------------------------------------------------
-// BASELINE STYLES
-// ---------------
+.table-collapse {
+  tbody {
+    > tr > td.collapse-toggle {
+      display: none;
+      padding: 4px 4px 0 0;
+    }
+  }
 
-.table-responsive {
-    display: table;
-    width: 100%;
-    background-color: @tableBackground;
-    margin-bottom: @baseLineHeight;
-    border-collapse: collapse;
-    border-spacing: 0;
+  @media (max-width: @grid-float-breakpoint) {
+    display: block;
 
-    // Groups
-    .caption {
-        display: table-caption;
-    }
-    .thead {
-        display: table-header-group;
-    }
-    .tbody {
-        display: table-row-group;
-    }
-    .tfoot {
-        display: table-footer-group;
-    }
-    .rowgroup {
-        display: table-row-group;
-    }
-    .colgroup {
-        display: table-column-group;
-    }
-    // Rows
-    dl {
-        display: table-row;
-        width: 100%;
-        margin: 0;
-    }
-    // Cells
-    dt,
-    dd {
-        display: table-cell;
-        padding: 8px;
-        margin: 0;
-        line-height: @baseLineHeight;
-        text-align: left;
-        vertical-align: top;
-        border-top: 1px solid @tableBorder;
-    }
-    dt.collapse,
-    dd.collapse {
-        height: auto;
-    }
-    dt {
-        font-weight: bold;
-    }
-    // Bottom align for column headings
-    .thead dt {
-        vertical-align: bottom;
-    }
-    // Hide all dts in .tbody
-    .tbody dt {
-        display: none;
-    }
-    // Remove top border from thead by default
-    .caption + .thead dl:first-child dt,
-    .caption + .thead dl:first-child dd,
-    .colgroup + .thead dl:first-child dt,
-    .colgroup + .thead dl:first-child dd,
-    .thead:first-child dl:first-child dt,
-    .thead:first-child dl:first-child dd {
-        border-top: 0;
-    }
-    // Account for multiple tbody instances
-    .tbody + .tbody {
-        border-top: 2px solid @tableBorder;
+    caption {
+      display: block;
     }
 
-    // Nesting
-    .table {
-        background-color: @bodyBackground;
+    thead, tfoot {
+      display: none;
     }
 
-    // Toggle button
-    dl .collapse-toggle {
-        padding-right: @baseLineHeight / 2;
-        padding-top: @baseLineHeight / 2;
-        display: none;
-        float: right;
-    }
-}
+    tbody {
+      display: block;
 
-// CONDENSED TABLE W/ HALF PADDING
-// -------------------------------
-
-.table-responsive-condensed {
-    dt,
-    dd {
-        padding: 4px 5px;
-    }
-}
-
-// BORDERED VERSION
-// ----------------
-
-.table-responsive-bordered {
-    border: 1px solid @tableBorder;
-    border-collapse: separate; // Done so we can round those corners!
-    *border-collapse: collapse; // IE7 can't round corners anyway
-    border-left: 0;
-    .border-radius(@baseBorderRadius);
-    dt,
-    dd {
-        border-left: 1px solid @tableBorder;
-        &.collapse-toggle {
-            border-left: none;
-        }
-    }
-    // Prevent a double border
-    .caption + .thead dl:first-child dt,
-    .caption + .tbody dl:first-child dt,
-    .caption + .tbody dl:first-child dd,
-    .colgroup + .thead dl:first-child dt,
-    .colgroup + .tbody dl:first-child dt,
-    .colgroup + .tbody dl:first-child dd,
-    .thead:first-child dl:first-child dt,
-    .tbody:first-child dl:first-child dt,
-    .tbody:first-child dl:first-child dd {
-        border-top: 0;
-    }
-    // For first dt/dd in the first row in the first .thead or .tbody
-    .thead:first-child dl:first-child > dt:first-child,
-    .tbody:first-child dl:first-child > dd:first-child,
-    .tbody:first-child dl:first-child > dt:first-child {
-        .border-top-left-radius(@baseBorderRadius);
-    }
-    // For last dt/dd in the first row in the first .thead or .tbody
-    .thead:first-child dl:first-child > dt:last-child,
-    .tbody:first-child dl:first-child > dd:last-child,
-    .tbody:first-child dl:first-child > dt:last-child {
-        .border-top-right-radius(@baseBorderRadius);
-    }
-    // For first dt/dd (can be either) in the last row in the last .thead, .tbody, and .tfoot
-    .thead:last-child dl:last-child > dt:first-child,
-    .tbody:last-child dl:last-child > dd:first-child,
-    .tbody:last-child dl:last-child > dt:first-child,
-    .tfoot:last-child dl:last-child > dd:first-child,
-    .tfoot:last-child dl:last-child > dt:first-child {
-        .border-bottom-left-radius(@baseBorderRadius);
-    }
-    // For last dt/dd (can be either) in the last row in the last .thead, .tbody, and .tfoot
-    .thead:last-child dl:last-child > dt:last-child,
-    .tbody:last-child dl:last-child > dd:last-child,
-    .tbody:last-child dl:last-child > dt:last-child,
-    .tfoot:last-child dl:last-child > dd:last-child,
-    .tfoot:last-child dl:last-child > dt:last-child {
-        .border-bottom-right-radius(@baseBorderRadius);
-    }
-
-    // Clear border-radius for first and last dd in the last row in the last .tbody for table with .tfoot
-    .tfoot + .tbody:last-child dl:last-child dd:first-child {
-        .border-bottom-left-radius(0);
-    }
-    .tfoot + .tbody:last-child dl:last-child dd:last-child {
-        .border-bottom-right-radius(0);
-    }
-
-    // Special fixes to round the left border on the first dd/dt
-    .caption + .thead dl:first-child dt:first-child,
-    .caption + .tbody dl:first-child dd:first-child,
-    .colgroup + .thead dl:first-child dt:first-child,
-    .colgroup + .tbody dl:first-child dd:first-child {
-        .border-top-left-radius(@baseBorderRadius);
-    }
-    .caption + .thead dl:first-child dt:last-child,
-    .caption + .tbody dl:first-child dd:last-child,
-    .colgroup + .thead dl:first-child dt:last-child,
-    .colgroup + .tbody dl:first-child dd:last-child {
-        .border-top-right-radius(@baseBorderRadius);
-    }
-}
-
-// ZEBRA-STRIPING
-// --------------
-
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.table-responsive-striped {
-    .tbody {
-        > dl:nth-child(odd) > dd,
-        > dl:nth-child(odd) > dt,
-        > dl:nth-child(odd) .collapse-toggle {
-            background-color: @tableBackgroundAccent;
-        }
-    }
-}
-
-// HOVER EFFECT
-// ------------
-// Placed here since it has to come after the potential zebra striping
-.table-responsive-hover {
-    .tbody {
-        dl:hover > dd,
-        dl:hover > dt,
-        dl:hover .collapse-toggle {
-            background-color: @tableBackgroundHover;
-        }
-    }
-}
-
-// TABLE CELL SIZING
-// -----------------
-
-// Reset default grid behavior
-.table-responsive dd[class*="span"],
-.table-responsive dt[class*="span"],
-.row-fluid .table-responsive dd[class*="span"],
-.row-fluid .table-responsive dt[class*="span"] {
-    display: table-cell;
-    float: none; // undo default grid column styles
-    margin-left: 0; // undo default grid column styles
-}
-
-// Change the column widths to account for td/th padding
-.table-responsive dd,
-.table-responsive dt {
-    &.span1 { .tableColumns(1);
-    }
-    &.span2 { .tableColumns(2);
-    }
-    &.span3 { .tableColumns(3);
-    }
-    &.span4 { .tableColumns(4);
-    }
-    &.span5 { .tableColumns(5);
-    }
-    &.span6 { .tableColumns(6);
-    }
-    &.span7 { .tableColumns(7);
-    }
-    &.span8 { .tableColumns(8);
-    }
-    &.span9 { .tableColumns(9);
-    }
-    &.span10 { .tableColumns(10);
-    }
-    &.span11 { .tableColumns(11);
-    }
-    &.span12 { .tableColumns(12);
-    }
-}
-
-// TABLE BACKGROUNDS
-// -----------------
-// Exact selectors below required to override .table-responsive-striped
-
-.table-responsive .tbody dl {
-    &.success > dd {
-        background-color: @successBackground;
-    }
-    &.error > dd {
-        background-color: @errorBackground;
-    }
-    &.warning > dd {
-        background-color: @warningBackground;
-    }
-    &.info > dd {
-        background-color: @infoBackground;
-    }
-}
-
-// Striped states for .table-responsive-striped
-.table-responsive-striped .tbody dl:nth-child(odd) {
-    &.success:hover > dd {
-        background-color: darken(@successBackground, 5%);
-    }
-    &.error:hover > dd {
-        background-color: darken(@errorBackground, 5%);
-    }
-    &.warning:hover > dd {
-        background-color: darken(@warningBackground, 5%);
-    }
-    &.info:hover > dd {
-        background-color: darken(@infoBackground, 5%);
-    }
-}
-
-// Hover states for .table-responsive-hover
-// Placed here since it has to come after the potential zebra striping
-.table-responsive-hover .tbody dl {
-    &.success:hover > dd {
-        background-color: darken(@successBackground, 5%);
-    }
-    &.error:hover > dd {
-        background-color: darken(@errorBackground, 5%);
-    }
-    &.warning:hover > dd {
-        background-color: darken(@warningBackground, 5%);
-    }
-    &.info:hover > dd {
-        background-color: darken(@infoBackground, 5%);
-    }
-}
-
-//
-// Responsive: Landscape phone to desktop/tablet
-// --------------------------------------------------
-
-@media (max-width: 767px) {
-    // BASELINE STYLES
-    // ---------------
-    .table-responsive {
+      > tr {
         display: block;
-        // Groups
-        .caption {
-            display: block;
-        }
-        .thead {
-            display: none;
-        }
-        .tbody {
-            display: block;
-        }
-        .tfoot {
-            display: none;
-        }
-        .rowgroup {
-            display: block;
-        }
-        .colgroup {
-            display: block;
-        }
-        // Rows
-        dl {
-            display: list-item;
-            list-style-type: none;
-            margin: 0;
-        }
-        // Cells
-        dt,
-        dd {
-            display: list-item;
-            padding: 0 @baseLineHeight / 2;
-            border-top: 0;
-        }
-        dt.collapse,
-        dd.collapse {
-            height: 0;
-        }
-        dl dt:first-of-type {
-            padding-top: @baseLineHeight / 2;
-        }
-        dd.collapse {
-            padding-bottom: 0;
-        }
-        dd,
-        dd.collapse.in {
-            padding-left: @baseLineHeight;
-            padding-bottom: @baseLineHeight / 2;
-        }
-        // Show all dts in .tbody
-        .tbody dt {
-            display: list-item;
-        }
-        .tbody dl dt:last-child,
-        .tbody dl dd:last-child {
-            border-bottom: 1px solid @tableBorder;
-        }
-        .tbody dl:last-child dt:last-child,
-        .tbody dl:last-child dd:last-child {
-            border-bottom: 0;
+        border-top: 1px solid @table-border-color;
+
+        &:first-child {
+          border-top: none;
         }
 
-        // Toggle button
-        dl .collapse-toggle {
+        > td {
+          border: none;
+          display: block;
+
+          &.collapse-toggle {
             display: block;
+            float: right;
+          }
+
+          &.collapse {
+            display: none;
+          }
+
+          &[role] {
+            &:before {
+              content: attr(role);
+              display: block;
+              float: left;
+              width: (@component-offset-horizontal - 20);
+              padding-right: 20px;
+              clear: left;
+              text-align: right;
+              font-weight: bold;
+              .text-overflow();
+            }
+          }
         }
+      }
     }
+
+    &.table-bordered {
+      border: none; // Remove border from table and apply to tbody
+
+      tbody {
+        border: 1px solid @table-border-color;
+      }
+    }
+  }
 }

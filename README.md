@@ -1,4 +1,4 @@
-# Bootstrap Responsive Table v2.0.0
+# Bootstrap Responsive Table v2.0.1
 
 Adds classes for responsive tables to Twitter Bootstrap.
 

@@ -44,9 +44,9 @@
             display: none;
           }
 
-          &[role] {
+          &[data-caption] {
             &:before {
-              content: attr(role);
+              content: attr(data-caption);
               display: block;
               float: left;
               width: (@component-offset-horizontal - 20);

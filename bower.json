@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-table-responsive",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": ["./dist/css/bootstrap-table-responsive.css"],
   "ignore": [
       "**/.*"

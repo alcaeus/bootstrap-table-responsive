@@ -35,7 +35,7 @@
   .table-collapse tbody > tr > td.collapse {
     display: none;
   }
-  .table-collapse tbody > tr > td[role]:before {
+  .table-collapse tbody > tr > td[data-caption]:before {
     display: block;
     float: left;
     width: 160px;
@@ -46,7 +46,7 @@
     text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
-    content: attr(role);
+    content: attr(data-caption);
   }
   .table-collapse.table-bordered {
     border: none;
